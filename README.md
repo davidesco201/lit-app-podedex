@@ -5,7 +5,7 @@ Esta es una aplicación para gestionar y visualizar información de Pokémon uti
 
 ## Requisitos
 
-- Node.js (versión 14 o superior)
+- Node.js (versión 14 o superior) (version usada 14.19.0)
 - npm (versión 6 o superior)
 - json-server
 
