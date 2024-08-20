@@ -1,0 +1,182 @@
+{
+  "pokemon": [
+    {
+      "name": "Bulbasaur",
+      "type": "Grass/Poison",
+      "image": "bulbasaur.png",
+      "evolutions": [
+        {
+          "name": "Ivysaur",
+          "type": "Grass/Poison",
+          "image": "ivysaur.png"
+        },
+        {
+          "name": "Venusaur",
+          "type": "Grass/Poison",
+          "image": "venusaur.png"
+        }
+      ]
+    },
+    {
+      "name": "Charmander",
+      "type": "Fire",
+      "image": "charmander.png",
+      "evolutions": [
+        {
+          "name": "Charmeleon",
+          "type": "Fire",
+          "image": "charmeleon.png"
+        },
+        {
+          "name": "Charizard",
+          "type": "Fire/Flying",
+          "image": "charizard.png"
+        }
+      ]
+    },
+    {
+      "name": "Squirtle",
+      "type": "Water",
+      "image": "squirtle.png",
+      "evolutions": [
+        {
+          "name": "Wartortle",
+          "type": "Water",
+          "image": "wartortle.png"
+        },
+        {
+          "name": "Blastoise",
+          "type": "Water",
+          "image": "blastoise.png"
+        }
+      ]
+    },
+    {
+      "name": "Pikachu",
+      "type": "Electric",
+      "image": "pikachu.png",
+      "evolutions": [
+        {
+          "name": "Raichu",
+          "type": "Electric",
+          "image": "raichu.png"
+        }
+      ]
+    },
+    {
+      "name": "Jigglypuff",
+      "type": "Normal/Fairy",
+      "image": "jigglypuff.png",
+      "evolutions": [
+        {
+          "name": "Wigglytuff",
+          "type": "Normal/Fairy",
+          "image": "wigglytuff.png"
+        }
+      ]
+    },
+    {
+      "name": "Gengar",
+      "type": "Ghost/Poison",
+      "image": "gengar.png",
+      "evolutions": []
+    },
+    {
+      "name": "Machop",
+      "type": "Fighting",
+      "image": "machop.png",
+      "evolutions": [
+        {
+          "name": "Machoke",
+          "type": "Fighting",
+          "image": "machoke.png"
+        },
+        {
+          "name": "Machamp",
+          "type": "Fighting",
+          "image": "machamp.png"
+        }
+      ]
+    },
+    {
+      "name": "Vulpix",
+      "type": "Fire",
+      "image": "vulpix.png",
+      "evolutions": [
+        {
+          "name": "Ninetales",
+          "type": "Fire",
+          "image": "ninetales.png"
+        }
+      ]
+    },
+    {
+      "name": "Geodude",
+      "type": "Rock/Ground",
+      "image": "geodude.png",
+      "evolutions": [
+        {
+          "name": "Graveler",
+          "type": "Rock/Ground",
+          "image": "graveler.png"
+        },
+        {
+          "name": "Golem",
+          "type": "Rock/Ground",
+          "image": "golem.png"
+        }
+      ]
+    },
+    {
+      "name": "Abra",
+      "type": "Psychic",
+      "image": "abra.png",
+      "evolutions": [
+        {
+          "name": "Kadabra",
+          "type": "Psychic",
+          "image": "kadabra.png"
+        },
+        {
+          "name": "Alakazam",
+          "type": "Psychic",
+          "image": "alakazam.png"
+        }
+      ]
+    },
+    {
+      "name": "Ditto",
+      "type": "Normal",
+      "image": "ditto.png",
+      "evolutions": []
+    },
+    {
+      "name": "Eevee",
+      "type": "Normal",
+      "image": "eevee.png",
+      "evolutions": [
+        {
+          "name": "Vaporeon",
+          "type": "Water",
+          "image": "vaporeon.png"
+        },
+        {
+          "name": "Jolteon",
+          "type": "Electric",
+          "image": "jolteon.png"
+        },
+        {
+          "name": "Flareon",
+          "type": "Fire",
+          "image": "flareon.png"
+        }
+      ]
+    },
+    {
+      "name": "Snorlax",
+      "type": "Normal",
+      "image": "snorlax.png",
+      "evolutions": []
+    }
+  ]
+}
