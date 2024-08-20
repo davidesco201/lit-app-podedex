@@ -13,8 +13,8 @@ Esta es una aplicación para gestionar y visualizar información de Pokémon uti
 
 1. Clona el repositorio:
     ```bash
-    git clone https://github.com/tu-usuario/pokedex-api.git
-    cd pokedex-api
+    git clone [https://github.com/tu-usuario/pokedex-api.git](https://github.com/davidesco201/lit-app-podedex.git)
+
     ```
 
 2. Actualiza los módulos de Node:
