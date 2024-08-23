@@ -87,7 +87,7 @@ export class PokeHome extends LitElement {
 
   constructor() {
     super();
-    this.dataManager = new PokeDataManager("http://localhost:3002/pokemon", 4);
+    this.dataManager = new PokeDataManager("http://localhost:3002/pokemon", 13);
     this.presenter = new PokemonListPresenter(
       this.dataManager,
       this.updatePokemons.bind(this),
@@ -155,20 +155,6 @@ export class PokeHome extends LitElement {
               </poke-container>
             </div>
           `}
-      <div class="pagination">
-        <button
-          @click=${this.handlePrevious}
-          ?disabled=${this.currentPage === 0}
-        >
-          <img src="../assets/chevron_left.svg" alt="Previous Button" />
-        </button>
-        <button
-          @click=${this.handleNext}
-          ?disabled=${this.filteredPokemons.length === 0}
-        >
-          <img src="../assets/chevron_right.svg" alt="Next Button" />
-        </button>
-      </div>
     `;
   }
 }
