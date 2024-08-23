@@ -32,12 +32,12 @@ export class PokeModal extends LitElement {
       background-color: var(--light-shades-color, white);
       border-radius: 2rem;
       padding: 0.5rem;
-      min-width: 20%;
-      width: fit-content;
       text-align: center;
       font-family: var(--main-font);
       border: 4px solid var(--main-color);
       border-color: var(--main-color);
+      max-width: 60%;
+      height: fit-content;
     }
     .header {
       display: flex;
@@ -48,6 +48,8 @@ export class PokeModal extends LitElement {
       justify-content: space-between;
       padding: 0.5rem;
       color: var(--type-color, var(--main-color));
+      white-space: nowrap;
+      align-items: center;
     }
     .content {
       display: flex;
@@ -55,7 +57,9 @@ export class PokeModal extends LitElement {
       flex-wrap: wrap;
       gap: 0.5rem;
       justify-content: flex-start;
-      padding: 0.5rem;
+      text-align: left;
+      padding: 1rem;
+      font-size: 4vw;
     }
 
     button.close-button > img {
@@ -83,6 +87,12 @@ export class PokeModal extends LitElement {
     p {
       margin: 0;
     }
+    .name {
+      font-size: 5.5vw;
+      font-weight: bold;
+      margin: 0;
+      padding: 0.5rem;
+    }
   `;
 
   handleOnClose() {
@@ -100,7 +110,7 @@ export class PokeModal extends LitElement {
     return html`
       <div class="modal">
         <div class="header">
-          <div class="name">${capitalize("Info")}</div>
+          <h1 class="name">${capitalize("Info")}</h1>
           <button class="close-button" @click=${this.handleOnClose}>
             <img src="./../../assets/close.svg" att="Close Button" />
           </button>
