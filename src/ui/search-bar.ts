@@ -13,6 +13,7 @@ export class SearchBar extends LitElement {
       height: fit-content;
       display: flex;
       align-items: center;
+      padding:0.5rem;
     }
     .search-input {
       background-color: var(--light-shades-color);
