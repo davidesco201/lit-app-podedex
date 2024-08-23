@@ -2,9 +2,10 @@ import { LitElement, html, css } from "lit";
 import PokeDataManager from "../data/pokemon.dm.ts";
 import PokemonPresenter from "../dp/pokemon.dp.ts";
 import { Router } from "@vaadin/router";
-import getColorByType from "../model/color-types.dir";
+import { parseEvolutionToPokemon } from "../model/pokemon.model.ts"
 import "../ui/loader.ts";
 import "../ui/button.ts";
+import "../ui/card.ts"
 
 export class EvolutionPage extends LitElement {
   static properties = {
@@ -20,32 +21,7 @@ export class EvolutionPage extends LitElement {
     .gap2 {
       gap: 2rem;
     }
-    .pokemon {
-      justify-content: space-evenly;
-      align-items: center;
-      border: 1px solid var(--type-color, var(--main-color));
-      border-radius: 1rem;
-      padding: 1rem;
-      text-align: center;
-      width: fit-content;
-      margin: auto;
-      font-family: var(--main-font);
-      box-shadow: var(--shadow-1);
-      cursor: pointer;
-    }
-    .pokemon h1 {
-      color: var(--type-color, var(--main-color));
-      margin: 0;
-    }
 
-    .pokemon .type {
-      border: 1px solid var(--type-color-span, var(--main-color));
-      border-radius: 0.5rem;
-      padding: 0.5rem;
-      text-align: center;
-      width: fit-content;
-      color: var(--type-color-span, var(--main-color));
-    }
     .col {
       display: flex;
       flex-direction: column;
@@ -60,12 +36,7 @@ export class EvolutionPage extends LitElement {
       gap: 0.5rem;
       justify-content: flex-start;
     }
-    .pokemon img {
-      width: 8rem;
-      height: 8rem;
-      object-fit: contain;
-      aspect-ratio: 1/1;
-    }
+
     .back-btn {
       margin-top: 0.5rem;
       padding: 0.5rem;
@@ -140,9 +111,9 @@ export class EvolutionPage extends LitElement {
         : this.pokemon
         ? html` <div class="col margin gap2">
               <poke-container>
-                ${this.renderPokemonDetails(this.pokemon)}
+                <poke-card .pokemon=${this.pokemon} .edit=${true}></poke-card>
                 ${this.pokemon.evolutions.map(
-                  (pokemon) => html`${this.renderPokemonDetails(pokemon)}`
+                  (pokemon) => html`<poke-card .pokemon=${parseEvolutionToPokemon(pokemon)} .edit=${true}></poke-card>`
                 )}
               </poke-container>
             </div>
@@ -151,41 +122,6 @@ export class EvolutionPage extends LitElement {
             </button>`
         : html`<poke-loader></poke-loader>`}
     `;
-  }
-
-  renderPokemonDetails(pokemon) {
-    return html`
-      <div
-        class="col pokemon"
-        style="--type-color: ${getColorByType(pokemon?.type[0])};"
-      >
-        <img
-          src="../../assets/pokemon/${pokemon?.image || ""}"
-          alt="${pokemon?.name}"
-        />
-        <div class="row">
-          <div class="col">
-            <h1>${pokemon?.name}</h1>
-            <div class="row">${this.renderPokemonTypes(pokemon)}</div>
-            <custom-button
-              .data=${pokemon}
-              text="Edit"
-              @custom-event=${this.openPage}
-            ></custom-button>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  renderPokemonTypes(pokemon) {
-    return pokemon?.type.map(
-      (type) => html`
-        <span class="type" style="--type-color-span: ${getColorByType(type)};">
-          ${type}
-        </span>
-      `
-    );
   }
 }
 
