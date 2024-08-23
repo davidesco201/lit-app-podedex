@@ -24,10 +24,11 @@ export class PokeEdit extends LitElement {
     }
 
     .editor img {
-      width: 8rem;
-      height: 8rem;
+      width: 20rem;
+      height: 20rem;
       object-fit: contain;
       aspect-ratio: 1 / 1;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
     }
 
     .editor input,
@@ -78,6 +79,28 @@ export class PokeEdit extends LitElement {
 
     button:hover {
       box-shadow: var(--shadow-1);
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      justify-content: flex-start;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: flex-start;
+    }
+
+    .row.container {
+      justify-content: space-evenly;
+    }
+    #duplicate{
+      align-self: flex-start;
     }
   `;
 
@@ -148,46 +171,64 @@ export class PokeEdit extends LitElement {
         style="--type-color: ${getColorByType(this.pokemon?.type?.[0] || "")}"
       >
         <h1>Edit Pokémon</h1>
-        <img
-          src="../../assets/pokemon/${this.pokemon?.image || ""}"
-          alt="${this.pokemon?.name || ""}"
-        />
-        <label for="name">Name:</label>
-        <input
-          id="name"
-          type="text"
-          .value="${this.pokemon?.name || ""}"
-          @input="${this.handleNameChange}"
-        />
-        <label for="type">Type:</label>
-        <select
-          id="type"
-          @change="${this.handleTypeChange}"
-          .value="${this.pokemon?.type?.[0] || ""}"
-        >
-          <option value="" disabled>Select a type</option>
-          ${this.renderTypeOptions()}
-        </select>
-        <label for="image">Image URL:</label>
-        <input
-          id="image"
-          type="text"
-          .value="${this.pokemon?.image || ""}"
-          @input="${this.handleImageChange}"
-        />
-        <label for="duplicate">Is this Pokémon a duplicate?</label>
-        <input
-          id="duplicate"
-          type="checkbox"
-          @change="${this.handleDuplicateChange}"
-        />
-        <custom-button
-          class="save-button ${this.hasChange ? "active" : ""}"
-          .data="${this.pokemon}"
-          text="Save"
-          ?disabled="${!this.hasChange}"
-          @custom-event="${this.saveChanges}"
-        ></custom-button>
+        <div class="row container">
+          <img
+            src="../../assets/pokemon/${this.pokemon?.image || ""}"
+            alt="${this.pokemon?.name || ""}"
+          />
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="col">
+                  <label for="name">Name:</label>
+                  <input
+                    id="name"
+                    type="text"
+                    .value="${this.pokemon?.name || ""}"
+                    @input="${this.handleNameChange}"
+                  />
+                </div>
+                <div class="col">
+                  <label for="type">Type:</label>
+                  <select
+                    id="type"
+                    @change="${this.handleTypeChange}"
+                    .value="${this.pokemon?.type?.[0] || ""}"
+                  >
+                    <option value="" disabled>Select a type</option>
+                    ${this.renderTypeOptions()}
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="col">
+                  <label for="image">Image URL:</label>
+                  <input
+                    id="image"
+                    type="text"
+                    .value="${this.pokemon?.image || ""}"
+                    @input="${this.handleImageChange}"
+                  />
+                </div>
+                <div class="col">
+                  <label for="duplicate">Is this Pokémon a duplicate?</label>
+                  <input
+                    id="duplicate"
+                    type="checkbox"
+                    @change="${this.handleDuplicateChange}"
+                  />
+                </div>
+              </div>
+            </div>
+            <custom-button
+              class="save-button ${this.hasChange ? "active" : ""}"
+              .data="${this.pokemon}"
+              text="Save"
+              ?disabled="${!this.hasChange}"
+              @custom-event="${this.saveChanges}"
+            ></custom-button>
+          </div>
+        </div>
       </div>
       <button @click="${this.goBack}">
         <img src="../../assets/chevron_left.svg" alt="Previous Button" />
